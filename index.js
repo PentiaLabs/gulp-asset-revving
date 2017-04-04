@@ -1,6 +1,6 @@
 'use strict';
 
-const AssetRevving = require('asset-revving');
+const AssetRevving = require('@pentia/asset-revving');
 const gutil = require('gulp-util');
 const path = require('path');
 const through = require('through2');
@@ -17,20 +17,20 @@ module.exports = opts => {
 			return;
 		}
 
+		const assetRevving = new AssetRevving(opts);
+
 		let stream = this;
 
-		(new AssetRevving( opts ).revving( file.path, file.contents ).then( product => {
+		let product = assetRevving.revving( file.path, file.contents, '---' );
 
-			// let's get the product into a file and into our stream
-			let newFile = new gutil.File({
-				base: file.base,
-				path: path.join(product.folder, opts.mode + '.html'),
-				contents: new Buffer(product.contents)
-			});
+		let newFile = new gutil.File({
+			base: file.base,
+			path: path.join(file.base, path.basename(file.path, path.extname(file.path)) + '.html'),
+			contents: new Buffer(product.contents)
+		});
 
-			stream.push(newFile);
+		stream.push(newFile);
 
-			callback(null, file);
-		}));
+		callback(null, file);
 	});
 };
