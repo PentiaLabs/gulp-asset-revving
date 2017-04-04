@@ -1,0 +1,21 @@
+{
+  "name": "@pentia/gulp-asset-revving",
+  "version": "1.0.0",
+  "description": "Gulp wrapper for asset-revving",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-util": "^3.0.8",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "revving",
+    "frontend"
+  ],
+  "author": "Brian Frisch (brian.frisch@gmail.com)",
+  "license": "ISC"
+}
