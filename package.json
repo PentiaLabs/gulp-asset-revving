@@ -1,12 +1,12 @@
 {
   "name": "@pentia/gulp-asset-revving",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Gulp wrapper for asset-revving",
   "main": "index.js",
   "dependencies": {
     "gulp-util": "^3.0.8",
     "through2": "^2.0.3",
-    "@pentia/asset-revving": "1.1.0"
+    "@pentia/asset-revving": "1.2.0"
   },
   "devDependencies": {},
   "scripts": {
