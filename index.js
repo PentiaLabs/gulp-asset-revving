@@ -4,6 +4,7 @@ const AssetRevving = require('@pentia/asset-revving');
 const gutil = require('gulp-util');
 const path = require('path');
 const through = require('through2');
+const fileextension = 'cshtml';
 
 module.exports = opts => {
 	return through.obj( function (file, enc, callback) {
@@ -25,7 +26,7 @@ module.exports = opts => {
 
 		let newFile = new gutil.File({
 			base: file.base,
-			path: path.join(file.base, path.basename(file.path, path.extname(file.path)) + '.html'),
+			path: path.join(file.base, path.basename(file.path, path.extname(file.path)) + '.' + fileextension),
 			contents: new Buffer(product.contents)
 		});
 
